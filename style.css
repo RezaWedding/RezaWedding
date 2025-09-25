@@ -68,3 +68,109 @@ body {
   color: #d4af37;
   margin-top: 16px;
 }
+
+
+
+/* container galeri */
+.gallery {
+  display: grid;                          /* pakai grid */
+  grid-template-columns: repeat(4, 1fr);  /* 4 kolom */
+  gap: 10px;                              /* jarak antar foto */
+  margin-top: 15px;
+}
+
+/* setiap gambar */
+.gallery img {
+  width: 100%;         /* isi penuh kolom */
+  height: 200px;       /* tinggi sama */
+  object-fit: cover;   /* proporsional */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* tablet: 2 foto per baris */
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* hp: 1 foto per baris */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+/* modal penuh layar */
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;    /* foto maksimal 90% lebar layar */
+  max-height: 90vh;  /* maksimal 90% tinggi viewport */
+  object-fit: contain; /* supaya foto menyesuaikan */
+}
+
+
+/* Foto */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+}
+
+.close, .prev, .next {
+  color: white;
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+  cursor: pointer;
+  user-select: none;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+.close {
+  top: 15px;
+  right: 35px;
+  font-size: 45px;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+.prev:hover, .next:hover, .close:hover {
+  color: #ccc;
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+}
