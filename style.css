@@ -71,29 +71,124 @@ body {
 
 
 
+/* Card2 wrapper */
+.card2 {
+  background: #2b2b2b;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Judul di dalam card */
+.card2 .judul2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Grid galeri */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  padding: 16px;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom di desktop */
+  gap: 10px;
 }
 
-.card2 {
-  background: #f9f9f9;
-  border-radius: 8px;
-  overflow: hidden;
-  /* supaya tingginya sama */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 1/1; /* kotak */
-}
-
-.card2 img {
+.gallery-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* biar fit */
+  aspect-ratio: 1/1;            /* kotak */
+  object-fit: cover;            /* isi penuh */
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modal */
+.modal {
+  display: none; /* disembunyikan default */
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#caption {
+  margin: 15px auto;
+  text-align: center;
+  color: #ccc;
+}
+
+/* Tombol close */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Tombol prev/next */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+}
+
+
 
 
 
