@@ -71,41 +71,31 @@ body {
 
 
 
-/* container galeri */
 .gallery {
-  display: grid;                          /* pakai grid */
-  grid-template-columns: repeat(4, 1fr);  /* 4 kolom */
-  gap: 10px;                              /* jarak antar foto */
-  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
 }
 
-/* setiap gambar */
-.gallery img {
-  width: 100%;         /* isi penuh kolom */
-  height: 200px;       /* tinggi sama */
-  object-fit: cover;   /* proporsional */
+.card {
+  background: #f9f9f9;
   border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  /* supaya tingginya sama */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1; /* kotak */
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* biar fit */
 }
 
-/* tablet: 2 foto per baris */
-@media (max-width: 1024px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-/* hp: 1 foto per baris */
-@media (max-width: 600px) {
-  .gallery {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
 
 
 /* modal penuh layar */
