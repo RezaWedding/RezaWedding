@@ -50,16 +50,62 @@ body {
 }
 
 /* Social icons */
+
 .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+  justify-items: center;
+  margin-top: 20px;
 }
 
-.social-icons img {
-  width: 32px;
-  height: 32px;
+/* Kartu sosial (seperti kartu produk Shopee) */
+.social-card {
+  background-color: #2b2b2b;          /* warna kartu */
+  border-radius: 12px;
+  padding: 16px 8px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.social-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Gambar ikon dalam kartu */
+.social-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+/* Nama platform di bawah ikon */
+.social-card p {
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+}
+
+/* Responsif di layar kecil */
+@media (max-width: 768px) {
+  .social-icons {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+
+  .social-card img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-card p {
+    font-size: 12px;
+  }
+}
+
 
 /* Footer */
 .footer {
